@@ -20,7 +20,7 @@ namespace Day02
                 boxLetters = new Dictionary<char, int>(box.Length);
                 foreach (char letter in box.ToCharArray())
                 {
-                    if(boxLetters.ContainsKey(letter))
+                    if (boxLetters.ContainsKey(letter))
                     {
                         boxLetters[letter] = boxLetters[letter] + 1;
                     }
@@ -35,8 +35,48 @@ namespace Day02
                 //if any value is 3, increment the count of boxes with three letters
             }
             //multiply the box counts
-            Console.WriteLine("Checksum: " + twoLetterBoxes*threeLetterBoxes);
+            Console.WriteLine("Checksum: " + twoLetterBoxes * threeLetterBoxes);
+
+            int idLength = boxes[0].Length;
+            int box1index = 0, box2index = 0;
+            //find similar boxes
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                for (int j = i + 1; j < boxes.Length; j++)
+                {
+                    if (Matches(boxes[i].ToCharArray(), boxes[j].ToCharArray()))
+                    {
+                        box1index = i;
+                        box2index = j;
+                    }
+                }
+            }
+            //get the common letters
+            String matchingLetters = boxes[box1index];
+            for (int i = 0; i < idLength; i++)
+            {
+                if (!(boxes[box1index][i]).Equals(boxes[box2index][i]))
+                {
+                    matchingLetters = matchingLetters.Remove(i, 1);
+                    break;
+                }
+            }
+            Console.WriteLine("Matching letters: " + matchingLetters);
             Console.Read();
+        }
+
+        private static bool Matches(char[] l, char[] r)
+        {
+            bool mismatch = false;
+            for (int i = 0; i < l.Length; i++)
+            {
+                if (l[i] != r[i])
+                {
+                    if (mismatch) return false;
+                    mismatch = true;
+                }
+            }
+            return true;
         }
     }
 }
