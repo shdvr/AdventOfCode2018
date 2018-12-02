@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Day01
 {
-    class Program
+    class Day01
     {
         static void Main(string[] args)
         {
@@ -33,6 +33,7 @@ namespace Day01
                 }
             } while (!freqRepeated);
             Console.WriteLine("First repeating frequency:" + result);
+            Console.Read();
         }
     }
 }
