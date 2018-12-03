@@ -17,7 +17,7 @@ namespace Day01
                 input[i] = int.Parse(inputFreqs[i]);
                 result += input[i];
             } 
-            Console.WriteLine("Final frequency:" + result);
+            Console.WriteLine("Final frequency: " + result);
             result = 0;
             bool freqRepeated = false;
             do
@@ -32,7 +32,7 @@ namespace Day01
                     }    
                 }
             } while (!freqRepeated);
-            Console.WriteLine("First repeating frequency:" + result);
+            Console.WriteLine("First repeating frequency: " + result);
             Console.Read();
         }
     }
