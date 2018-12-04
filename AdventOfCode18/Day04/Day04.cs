@@ -73,7 +73,21 @@ namespace Day04
                 }
             }
             Console.WriteLine("Sleepiest guard is " + sleepiest.id);
-            Console.WriteLine("Sleepiest minute is " + Array.IndexOf(sleepiest.map,sleepiest.map.Max()));
+            int maxSleepCount = sleepiest.map.Max();
+            Console.WriteLine("Sleepiest minute is " + Array.IndexOf(sleepiest.map, maxSleepCount));
+            Console.WriteLine("First answer: " + sleepiest.id * Array.IndexOf(sleepiest.map, maxSleepCount));
+            //find absolute sleepiest minute and corresponding guard (second *)
+            foreach (GuardInfo g in guards.Values)
+            {
+                if(g.map.Max() > maxSleepCount)
+                {
+                    sleepiest = g;
+                    maxSleepCount = g.map.Max();
+                }
+            }
+            Console.WriteLine("Sleepiest guard is " + sleepiest.id);
+            Console.WriteLine("Sleepiest minute is " + Array.IndexOf(sleepiest.map, maxSleepCount));
+            Console.WriteLine("Second answer: " + sleepiest.id * Array.IndexOf(sleepiest.map, maxSleepCount));
             Console.Read();
         }
 
