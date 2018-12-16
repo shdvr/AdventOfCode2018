@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Day05
 {
-    class Program
+    class Polymer
     {
         static void Main(string[] args)
         {

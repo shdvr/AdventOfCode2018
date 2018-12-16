@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Day01
 {
-    class Day01
+    class Frequency
     {
         static void Main(string[] args)
         {

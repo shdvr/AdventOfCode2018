@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 namespace Day03
 {
-    class Program
+    class Fabric
     {
         static void Main(string[] args)
         {
