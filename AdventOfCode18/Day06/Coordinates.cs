@@ -76,20 +76,28 @@ namespace Day06
                     largestArea = Math.Max(c.area, largestArea);
                 }
             }
-            Console.WriteLine("First answer: " + largestArea); 
+            Console.WriteLine("First answer: " + largestArea);
 
-
-
-
-
-
-            //TODO: second part
-
-
-
-
-
-            Console.WriteLine("Second answer: " + 0); 
+            //count points with cumulative distance of less than 10000
+            int area = 0;
+            int distance;
+            for (short x = 0; x < maxX; x++)
+            {
+                for (short y = 0; y < maxY; y++)
+                {
+                    distance = 0;
+                    foreach (Coord c in coordinates)
+                    {
+                        distance += Math.Abs(c.X - x) + Math.Abs(c.Y - y);
+                        if (distance >= 10000) break;
+                    }
+                    if (distance < 10000)
+                    {
+                        area++;
+                    }
+                }
+            }
+            Console.WriteLine("Second answer: " + area); 
             Console.Read();
         }
 
