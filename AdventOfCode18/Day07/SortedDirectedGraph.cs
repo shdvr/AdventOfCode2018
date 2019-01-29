@@ -30,7 +30,6 @@ namespace Day07
         }
         public void AddEdge(Node from, Node to)
         {
-            Debug.Print(from.ID + " " + to.ID + Environment.NewLine);
             from.OutgoingEdges.Add(to.ID, to);
             to.IncomingEdges.Add(from.ID, from);
         }
